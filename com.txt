@@ -1,0 +1,2 @@
+$ scp -r /var/www/html/telematica/ dcanota@sistemas.eafit.edu.co:/home/dcanota/public_html/
+
