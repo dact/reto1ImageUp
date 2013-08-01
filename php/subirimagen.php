@@ -1,17 +1,20 @@
 <?php
 include 'getconexion.php';
 $src = "imagenes/";
-
-$descrpcion=$_POST["descripcion"];
+$categoria = $_POST["categoria"];
+$descripcion=$_POST["descripcion"];
+$id=$_SESSION['id'];
 
 foreach ($_FILES["myfile"]["error"] as $key => $error) {
     if ($error == UPLOAD_ERR_OK) {
         $tmp_name = $_FILES["myfile"]["tmp_name"][$key];
         $name = $_FILES["myfile"]["name"][$key];
 
-        $descripcion =
+        $ndescripcion =$descripcion[$key];
+        $ncategoria = $categoria[$key];
         //move_uploaded_file($tmp_name, "data/$name");
-        echo $name;
+        echo $name." ".$ndescripcion." ".$ncategoria;
+	}
 }
 
 

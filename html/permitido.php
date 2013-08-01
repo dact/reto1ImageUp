@@ -34,7 +34,11 @@ echo "<input type=\"button\" value=\"Salir\" onClick=\"salir()\">";
 
 		<div class="archivo">	
 	    <input type="file" name="myfile[]"> Descripcion: <input type="text" id="descripcion" name="descripcion[]">
-	    <input type="button" value="Eliminar" class="clseliminartabla">
+	    Categoria:
+	    	<select class="categoria" name="categoria[]" id="categoria">
+						  <option value="natural">Natural</option>
+						  <option value="juridica">Juridica</option>
+			</select>
 		</div>
 	    
 	    </div>
@@ -50,9 +54,9 @@ echo "<input type=\"button\" value=\"Salir\" onClick=\"salir()\">";
 	
 	<div id="status"></div>
 	
-	
-	Categoria:
+</div>
 
+<div id="main">
 </div>
 
 <script src="http://malsup.github.com/jquery.form.js"></script>
