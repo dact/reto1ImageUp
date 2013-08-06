@@ -1,5 +1,10 @@
 <?php
+$_SESSION['timeout']=time();
+
+include '../html/verificacion.php';
+include 'lib/SimpleImage.php';
 include 'getconexion.php';
+
 $src = "imagenes/";
 $categoria = $_POST["categoria"];
 $descripcion=$_POST["descripcion"];
@@ -12,27 +17,41 @@ foreach ($_FILES["myfile"]["error"] as $key => $error) {
 
         $ndescripcion =$descripcion[$key];
         $ncategoria = $categoria[$key];
-        //move_uploaded_file($tmp_name, "data/$name");
-        echo $name." ".$ndescripcion." ".$ncategoria;
+
+        
+        $src=$src.$name;
+        $auxsrc="../".$src;
+
+        //subir imagen original
+       	move_uploaded_file($tmp_name, $auxsrc);
+
+        //subir imagen scalada(editamos)
+        $image = new SimpleImage();
+        $image->load($auxsrc);
+        $image->resizeToWidth(250);
+        $image->save('../resizeimg/'.$name);   
+
+       	$src=$name;
+
+        $sql = "
+        INSERT INTO Imagenes(
+            src,
+            categoria,
+            id,
+            idimg,
+            descripcion
+            )VALUES (
+            '$src',
+            '$ncategoria',
+            '$id',
+            NULL,
+            '$ndescripcion'
+            )";
+            mysql_query($sql); 
+                      
+                
+        echo $src." ".$ndescripcion." ".$ncategoria." ".$id;       
 	}
-}
-
-
-// $sql = "
-// INSERT INTO Imagenes(
-//     src,
-//     categoria,
-//     id,
-//     idimg,
-//     descripcion
-//     )VALUES (
-//     NULL,
-//     '$src',
-//     '$categoria',
-//     '$id',
-//     'NULL',
-//     '$descripcion'
-//     )";
-//     mysql_query($sql);                  
+}          
                 
 ?>

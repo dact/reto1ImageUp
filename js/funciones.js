@@ -1,9 +1,3 @@
-function setEfectoTabs(argument) {
-	$(function() {
-    $( "#tabs" ).tabs();
-  });
-}
-
 function mostrarMain(){
 	$('#formulario').css("display", "none");
 	$('#main').css("display", "block");

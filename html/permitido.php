@@ -35,9 +35,7 @@ echo "<input type=\"button\" value=\"Salir\" onClick=\"salir()\">";
 		<div class="archivo">	
 	    <input type="file" name="myfile[]"> Descripcion: <input type="text" id="descripcion" name="descripcion[]">
 	    Categoria:
-	    	<select class="categoria" name="categoria[]" id="categoria">
-						  <option value="natural">Natural</option>
-						  <option value="juridica">Juridica</option>
+	    	<select class="categoria" name="categoria[]">
 			</select>
 		</div>
 	    
@@ -93,6 +91,9 @@ $('form').ajaxForm({
 })();       
 </script>
 <script>
+//consultar las categorias de la base de datos
+getsetcategorias();
+
   	//eliminar tabla
   	$(document).on('click','.clseliminartabla',function(){
   		var objtabla=$(this).parents().get(0);
