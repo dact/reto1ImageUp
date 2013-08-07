@@ -1,15 +1,39 @@
 #logo{
 float: left;
+width:250px; 
+height:139px;
 }
 #contlogin{
-float:right;
 margin-top: 40px;
+width: 400px;
+height: 73px;
+overflow: auto;
+float: right;
 }
 header{
 	overflow: auto;
 	width: 1000px;
-	height: 200px;
-	margin-bottom: 10px;
+	height: 140px;
+	margin-bottom: 20px;
 	margin-top: 20px;
-	margin-left: 100px;
+	margin-left:auto;
+	margin-right: auto;
+}
+.error{
+ color:#F00;
+ font-size:10px;
+}
+
+#formulario{
+		width: 1000px;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		margin-left:auto;
+		margin-right:auto;
+		overflow: auto;
+}
+#frmregusuario{
+	float: right;
+	width: 300px;
+	margin-right: 67px;
 }

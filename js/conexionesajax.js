@@ -1,4 +1,4 @@
-function login (argument) {
+function login () {
 	        $.post('php/login.php',
 			{
                 correo: $('#correol').val(),
@@ -94,6 +94,7 @@ function consultarImagenes(){
 					'<p>Categoria: '+obj[i].categoria+'<br>'+
 					'Descripcion: '+obj[i].descripcion+'<br>'+
 					'Autor: '+obj[i].nombre+obj[i].apellido+'<br>'+
+					'<a href="imagenes/'+obj[i].src+'" target="_blank" download>Descargar</a>'+
 					'</p>'+
 					'</div>';
 

@@ -7,9 +7,8 @@ $session_life =  time() - $_SESSION['timeout'];
 	          unset($_SESSION['nombre']);
 			  unset($_SESSION['apellido']);
 			  unset($_SESSION['id']);
-			  
-		   header('location: ../index.php');
 		}
+			//header('location:../index.php');	
 	}
 	else{
 		header('location: html/permitido.php');

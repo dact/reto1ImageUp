@@ -1,4 +1,4 @@
-<?php 
+<?php
   $_SESSION['timeout']=time();
   include 'php/verificacion.php';
 ?>
@@ -15,9 +15,8 @@
 
   <script src="js/funciones.js"></script>
   <script src="js/validaciones.js"></script>
+  <script src="js/jquery_validate.js"></script>
   <script src="js/conexionesajax.js"></script>
-
-
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -26,7 +25,7 @@
   <link href="css/carousel.css" rel="stylesheet">
 
 </head>
-<body>
+<body>  
 
   <header>
     <div id="logo">
@@ -34,20 +33,28 @@
     </div>
    <div id="contlogin">
     <div id="login" style="display: block;">
-      Correo <input type="text" id="correol">
-      Contrasena<input type="text" id="contrasenal">
-      <input type="button" value="Entrar"  onclick="login();">
-      <input type="button" id="registrarse" onClick="mostrarFormulario()" value="Registrate">
-    </div>
-    <div id="mensaje">
-      mensaje
+    <div id="mensaje" class="error"></div>
+      <form id="frmlogin" action="php/login.php" method="post">
+        <table>
+          <tr>
+            <td>
+              <input type="text" id="correol" name="correo" placeholder="Correo"><br>
+            </td>
+            <td>
+              <input type="password" id="contrasenal" name="contrasena" placeholder="Contrasena"><br>
+            </td>
+          </tr>
+        </table>    
+              <input type="submit" value="Entrar">
+              <input type="button" id="registrarse" onClick="mostrarFormulario()" value="Registrate">
+      </form>
     </div>
     </div>
   </header>
  
  <div id="formulario" style="display: none;">
 
-  <form id="frmregempresa"  method="post" >
+  <form id="frmregusuario"  method="post">
                   <table border="0">
                       <tr>
                           <th>Nombre</th>
@@ -93,6 +100,7 @@
 
 <script>
 consultarImagenes();
+validarlogin();
 </script>
   <!-- Bootstrap core JavaScript
     ================================================== -->
